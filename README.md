@@ -1,6 +1,6 @@
 # FlyWeb
 
-FlyWeb is a startup focused on revolutionizing last-mile delivery through autonomous drone technology. I are currently in the early prototype development phase.
+FlyWeb is a startup focused on revolutionizing last-mile delivery through autonomous drone technology. I am currently in the early prototype development phase.
 
 ## Project Progress
 
@@ -40,7 +40,7 @@ To maximize flight time and range, I moved beyond standard LiPo batteries and en
 
 ## Long-Range Endurance Test
 
-I successfully validated the platform's range and efficiency with a **13km round-trip flight**. The mission was completed with a significant margin of remaining battery capacity, confirming the viability of that design for delivery routes.
+I successfully validated the platform's range and efficiency with a **13km round-trip flight**. The mission was completed with a significant margin of remaining battery capacity, confirming the viability of that design for delivery routes and the ability to carry an additional payload.
 
 **First-Person View (FPV) from the flight:**
 <p align="left">
