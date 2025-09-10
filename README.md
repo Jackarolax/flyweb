@@ -58,10 +58,10 @@ We successfully validated the platform's range and efficiency with a **13km roun
 ### 1. Critical Importance of PID Tuning
     A PID controller is a feedback loop algorithm that automatically corrects the drone's movement to keep it stable.
 
-A well-tuned PID controller is essential for stable flight and hardware longevity. An improperly tuned controller induces high-frequency oscillations, forcing motors to work inefficiently and overheat. We observed this firsthand when motors became hot enough to damage their windings during a simple hover. Proper tuning allows even smaller motors to perform optimally, preventing thermal damage and maximizing efficiency without unnecessary weight increases.
+A well-tuned PID controller is not only essential for stable flight, but also for hardware longevity. An improperly tuned controller induces high-frequency oscillations, forcing motors to work inefficiently and overheat. We observed this firsthand when motors became hot enough to damage their windings during a simple hover. Proper tuning allows even smaller motors to perform optimally, preventing thermal damage and maximizing efficiency without unnecessary weight increases.
 
 ### 2. Significant Amperage Headroom Requirement
-While the drone cruises efficiently at 10-20A, its peak current demand can briefly exceed 100A during full-throttle maneuvers. This non-linear power requirement means a battery must be rated for these high bursts, not just cruise performance. Our initial 40A-rated pack could not supply these peaks, causing significant voltage sag that destabilized the flight controller and led to motor overheating.
+While the drone cruises efficiently at 10-20A, its peak current demand can briefly exceed 100A during full-throttle maneuvers. This non-linear power requirement means a battery must be rated for these high bursts, not just cruise performance. Our initial 40A-rated battery could not supply these bursts, causing severe voltage sag. This power instability directly disrupted the PID controller's operation, inducing dangerous oscillations that led to motor overheating and damage.
 
 In practice, a battery's peak rating can be a limiting factor for performance. To use a battery with a lower discharge rate, the maximum motor power can be software-limited, trading off top-end agility for compatibility and potentially longer battery life.
 
