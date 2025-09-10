@@ -1,10 +1,10 @@
 # FlyWeb
 
-FlyWeb is a startup focused on revolutionizing last-mile delivery through autonomous drone technology. We are currently in the early prototype development phase.
+FlyWeb is a startup focused on revolutionizing last-mile delivery through autonomous drone technology. I are currently in the early prototype development phase.
 
 ## Project Progress
 
-The foundation of a reliable delivery network is a robust drone capable of carrying a meaningful payload. Our first major milestone was the design and construction of a large-scale, custom quadcopter (X-class UAV) with a 10-inch propeller diameter to explore the capabilities and challenges of this platform.
+The foundation of a reliable delivery network is a robust drone capable of carrying a meaningful payload. My first major milestone was the design and construction of a large-scale, custom quadcopter (X-class UAV) with a 10-inch propeller diameter to explore the capabilities and challenges of this platform.
 
 **First 10-inch Quadcopter Prototype:**
 <p align="left">
@@ -20,7 +20,7 @@ The foundation of a reliable delivery network is a robust drone capable of carry
 
 ### Custom High-Capacity Battery Development
 
-To maximize flight time and range, we moved beyond standard LiPo batteries and engineered custom high-energy-density Li-ion packs.
+To maximize flight time and range, I moved beyond standard LiPo batteries and engineered custom high-energy-density Li-ion packs.
 
 **18650 6S2P Pack (5000mAh, 40A Continuous Discharge):**
 <p align="left">
@@ -40,7 +40,7 @@ To maximize flight time and range, we moved beyond standard LiPo batteries and e
 
 ## Long-Range Endurance Test
 
-We successfully validated the platform's range and efficiency with a **13km round-trip flight**. The mission was completed with a significant margin of remaining battery capacity, confirming the viability of our design for delivery routes.
+I successfully validated the platform's range and efficiency with a **13km round-trip flight**. The mission was completed with a significant margin of remaining battery capacity, confirming the viability of that design for delivery routes.
 
 **First-Person View (FPV) from the flight:**
 <p align="left">
@@ -58,12 +58,13 @@ We successfully validated the platform's range and efficiency with a **13km roun
 ### 1. Critical Importance of PID Tuning
     A PID controller is a feedback loop algorithm that automatically corrects the drone's movement to keep it stable.
 
-A well-tuned PID controller is not only essential for stable flight, but also for hardware longevity. An improperly tuned controller induces high-frequency oscillations, forcing motors to work inefficiently and overheat. We observed this firsthand when motors became hot enough to damage their windings during a simple hover. Proper tuning allows even smaller motors to perform optimally, preventing thermal damage and maximizing efficiency without unnecessary weight increases.
+A well-tuned PID controller is not only essential for stable flight, but also for hardware longevity. An improperly tuned controller induces high-frequency oscillations, forcing motors to work inefficiently and overheat. I observed this firsthand when the motors became hot enough to damage their windings during a simple hover. Proper tuning allows even smaller motors to perform optimally, preventing thermal damage and maximizing efficiency without unnecessary weight increases.
 
 ### 2. Significant Amperage Headroom Requirement
-While the drone cruises efficiently at 10-20A, its peak current demand can briefly exceed 100A during full-throttle maneuvers. This non-linear power requirement means a battery must be rated for these high bursts, not just cruise performance. Our initial 40A-rated battery could not supply these bursts, causing severe voltage sag. This power instability directly disrupted the PID controller's operation, inducing dangerous oscillations that led to motor overheating and damage.
+While the drone cruises efficiently at 10-20A, its peak current demand can briefly exceed 100A during full-throttle maneuvers. This non-linear power requirement means a battery must be rated for these high bursts, not just for cruise performance plus some headroom. Our initial 40A-rated battery could not supply these bursts, causing severe voltage sag. This power instability directly disrupted the PID controller's operation, inducing dangerous oscillations that led to motor overheating and damage.
 
-In practice, a battery's peak rating can be a limiting factor for performance. To use a battery with a lower discharge rate, the maximum motor power can be software-limited, trading off top-end agility for compatibility and potentially longer battery life.
+To avoid that problem, the maximum motor power can be software-limited, trading off top-end agility for compatibility.
+(although I haven't rigorously tested this makeshift solution yet)
 
 ### 3. The Battery Trilemma: Capacity vs. Discharge vs. Longevity
     The C-Rating defines a battery's maximum safe continuous discharge current.
@@ -71,17 +72,18 @@ In practice, a battery's peak rating can be a limiting factor for performance. T
         A 3C 5000mAh battery can supply 15A
         A 20C 5000mAh battery can supply 100A
 
-Our research into Li-ion cells revealed a critical trade-off:
+My research into Li-ion cells revealed a critical trade-off:
 -   **High Discharge Rate (C-Rating):** Cells rated for 10-20C typically offer only 200-300 cycles before degrading to 60-80% of original capacity.
 -   **Low Discharge Rate:** Cells rated for 2-3C can achieve 500-800 cycles while retaining 80-90% capacity.
 
 This creates a key design challenge: optimizing for sufficient peak amperage (see Learning #2) while prioritizing long-term battery cycle life for economic viability.
 
 **TL;DR: Key Learnings:**
-Proper PID tuning can outperform hardware upgrades, using batteries with an inadequate C-rating risks motor damage, and higher-performance cells significantly sacrifice long-term lifespan.
+Proper PID tuning can outperform hardware upgrades, using batteries with an inadequate discharge-rating risks motor damage, and higher-performance cells significantly sacrifice long-term lifespan.
+
 ## Next Steps
 
-Our immediate goal is to build upon these learnings by developing a **hexacopter frame** for the 10-inch propulsion system. This design will introduce motor redundancy, increasing safety and payload capacity for our first proof-of-concept delivery tests.
+My next goal is to build upon these learnings by developing a **hexacopter frame** for the 10-inch drone class. This design will introduce motor redundancy and it will be using more cost effective motors. the frame also allows for more options to mount payload to for my first proof-of-concept delivery tests.
 
 <p align="left">
   <img src="./images/10 inch hex.jpg" alt="10-inch hexacopter frame design" height="500"/>
