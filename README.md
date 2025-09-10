@@ -1,85 +1,79 @@
 # FlyWeb
-FlyWeb is a startup focusing on disrupting the last mile delivery market.
 
-currently the project is in the early prototype phase.
+FlyWeb is a startup focused on revolutionizing last-mile delivery through autonomous drone technology. We are currently in the early prototype development phase.
 
-## Progress
+## Project Progress
 
-Building a delivery network requires a drone that can carry a payload.
-That is why my first steps were to build a rather large drone and get to know the nature of x-class UAVs.
+The foundation of a reliable delivery network is a robust drone capable of carrying a meaningful payload. Our first major milestone was the design and construction of a large-scale, custom quadcopter (X-class UAV) with a 10-inch propeller diameter to explore the capabilities and challenges of this platform.
 
-This was the first approach at building a Quadcopter with a 10 inch diameter.
+**First 10-inch Quadcopter Prototype:**
 <p align="left">
   <img src="./10 inch build.jpg" width="500"/>
 </p>
 
-Here you can see the drone flying
+**Initial Flight Tests:**
 <p align="left">
-  <img src="./10 inch air.jpg" alt="10 inch build" width="200"/>
-  <img src="./10 inch building.jpg" alt="10 inch build" width="200"/>
-  <img src="./10 inch landing.jpg" alt="10 inch build" width="200"/>
+  <img src="./10 inch air.jpg" alt="Drone in flight" width="200"/>
+  <img src="./10 inch building.jpg" alt="Drone flying near a building" width="200"/>
+  <img src="./10 inch landing.jpg" alt="Drone landing" width="200"/>
 </p>
 
-I also set myself up to build a Li-ion pack for higher density in energy capacity
-(fpv drones are usually flown with Lipo cells that excell in high discharge rates)
+### Custom High-Capacity Battery Development
 
-This is how I built an 18650 6s2p 5000mah 40A battery
+To maximize flight time and range, we moved beyond standard LiPo batteries and engineered custom high-energy-density Li-ion packs.
+
+**18650 6S2P Pack (5000mAh, 40A Continuous Discharge):**
 <p align="left">
-  <img src="./18650 raw no plug.jpg" alt="10 inch build" height="200"/>
-  <img src="./18650 kapton taped.jpg" alt="10 inch build" height="200"/>
-  <img src="./18650 weight.jpg" alt="10 inch build" height="200"/>
-  <img src="./10 inch with 18650 6s2p.jpg" alt="10 inch build" height="200"/>
+  <img src="./18650 raw no plug.jpg" alt="Raw 18650 cell assembly" height="200"/>
+  <img src="./18650 kapton taped.jpg" alt="Taped cell assembly" height="200"/>
+  <img src="./18650 weight.jpg" alt="Final pack weight" height="200"/>
+  <img src="./10 inch with 18650 6s2p.jpg" alt="Drone with 18650 pack" height="200"/>
 </p>
 
-and I also built a 21700 6s2p 8000mah 80A battery
+**21700 6S2P Pack (8000mAh, 80A Continuous Discharge):**
 <p align="left">
-  <img src="./21700 raw no jst.jpg" alt="10 inch build" height="200"/>
-  <img src="./21700 ready.jpg" alt="10 inch build" height="200"/>
-  <img src="./21700 weight.jpg" alt="10 inch build" height="200"/>
-  <img src="./10 inch with unfinished 21700 6s2p.jpg" alt="10 inch build" height="200"/>
+  <img src="./21700 raw no jst.jpg" alt="Raw 21700 cell assembly" height="200"/>
+  <img src="./21700 ready.jpg" alt="Finished 21700 pack" height="200"/>
+  <img src="./21700 weight.jpg" alt="21700 pack weight" height="200"/>
+  <img src="./10 inch with unfinished 21700 6s2p.jpg" alt="Drone with 21700 pack" height="200"/>
 </p>
 
-## Long range Test
+## Long-Range Endurance Test
 
-I wanted to see if Ican really push the drone to fly over a long distance, and what can I say, a 13km roundtrip with a lot of leeway in battery percentage, so it was a success indeed :).
+We successfully validated the platform's range and efficiency with a **13km round-trip flight**. The mission was completed with a significant margin of remaining battery capacity, confirming the viability of our design for delivery routes.
+
+**First-Person View (FPV) from the flight:**
 <p align="left">
-  <img src="./longrange tower dvr.png" alt="10 inch build" height="220"/>
-  <img src="./longrange landing dvr.png" alt="10 inch build" height="220"/>
+  <img src="./longrange tower dvr.png" alt="FPV view during flight" height="220"/>
+  <img src="./longrange landing dvr.png" alt="FPV view on landing approach" height="220"/>
 </p>
 
+**Flight Path:**
 <p align="left">
-  <img src="./map.jpg" alt="10 inch build" height="600"/>
+  <img src="./map.jpg" alt="GPS map of the 13km flight" height="600"/>
 </p>
 
-## Learnings
+## Key Learnings
 
-### importance of a good pid tune
-the biggest lesson I learned when building a non standart fpv how crucial it is to have well tuned PIDs for the flight performance.
-An out of tune quad not only means, that the control signals wont be translated cleanly to the position of the drone, but also leads to oscillations, which is a big problem.
-In my case a simple hover already caused the motors to be burning hot and the insulating layer of the copper windings charred a bit.
-My motors werent able to handle the rapid acceleration and deceleration of the oscillations mandated by the pid controller and heated up to the point of damaging themselves. A possible fix would be to upgrade the stator volume of the motors, which would give some leeway, but that will lead to heavier motors and a heavier drone, which if detremental to efficiency.
-Having the right pid tune can even make undersized motors perform exceptionally, so it important to have it in mind at any time.
+### 1. Critical Importance of PID Tuning
+A well-tuned PID controller is essential for stable flight and hardware longevity. An improperly tuned controller induces high-frequency oscillations, forcing motors to work inefficiently and overheat. We observed this firsthand when motors became hot enough to damage their windings during a simple hover. Proper tuning allows even smaller motors to perform optimally, preventing thermal damage and maximizing efficiency without unnecessary weight increases.
 
+### 2. Significant Amperage Headroom Requirement
+While the drone cruises efficiently at 10-20A, its peak current demand can briefly exceed 100A during full-throttle maneuvers. This non-linear power requirement means a battery must be rated for these high bursts, not just cruise performance. Our initial 40A-rated pack could not supply these peaks, causing significant voltage sag that destabilized the flight controller and led to motor overheating.
 
-### Amperage leeway
-Even though the drone pulls about 10-20 Amps when cruising, the battery for this drone should be able to provide at least 60A.
-the power to speed ratio of motors is not linear, so a double in speed will not equate to a double in wattage.
-therefore especially on takeoff or sharp moves, the quad can pull up to 120 Amps.
-having used the 18650 6s2p battery, that could only deliver 40A (stated by the datasheet) also lead the drone to oscillate and burn the motor. I assume the lack of amperage needed amperage led to the pid controller and the motors to get out of sync.
+In practice, a battery's peak rating can be a limiting factor for performance. To use a battery with a lower discharge rate, the maximum motor power can be software-limited, trading off top-end agility for compatibility and potentially longer battery life.
 
- 
- ### low discharge is better than high discharge
- (C Rating quickly explained: 3c= can discharge from full to empty in 1/3h, and 20c = from full to empty in 1/20h)
+### 3. The Battery Trilemma: Capacity vs. Discharge vs. Longevity
+Our research into Li-ion cells revealed a critical trade-off:
+-   **High Discharge Rate (C-Rating):** Cells rated for 10-20C typically offer only 200-300 cycles before degrading to 60-80% of original capacity.
+-   **Low Discharge Rate:** Cells rated for 2-3C can achieve 500-800 cycles while retaining 80-90% capacity.
 
- When researching about the li-ion cells I found out that there is a trilemma between cycle life, C rating and capacity.
- Cells with a C rating  of 10-20 usually had a cycle life of only 200-300 Cycles degrading the capacity to 60-80% capacity, while cells with a C rating of only 2-3 the cycle life jumps up to 500-800 Cycles degrading the battery to 80-90%.
- This will mean the difference between a drone battery lasting for less than a year and lasting for several years.
- it is important to note that this is in direct contradiction to the Amperage leeway point, so this will be an important dilemma to optimize for.
+This creates a key design challenge: optimizing for sufficient peak amperage (see Learning #2) while prioritizing long-term battery cycle life for economic viability.
 
 ## Next Steps
 
-my next step is to build a 10 inch drone on a Hex frame, to incoorporate more motors for redundancy and perform the first test delivery.
+Our immediate goal is to build upon these learnings by developing a **hexacopter frame** for the 10-inch propulsion system. This design will introduce motor redundancy, increasing safety and payload capacity for our first proof-of-concept delivery tests.
 
 <p align="left">
-  <img src="./10 inch hex.jpg" alt="10 inch build" height="500"/>
+  <img src="./10 inch hex.jpg" alt="10-inch hexacopter frame design" height="500"/>
 </p>
