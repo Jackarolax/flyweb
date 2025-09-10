@@ -56,6 +56,8 @@ We successfully validated the platform's range and efficiency with a **13km roun
 ## Key Learnings
 
 ### 1. Critical Importance of PID Tuning
+    A PID controller is a feedback loop algorithm that automatically corrects the drone's movement to keep it stable.
+
 A well-tuned PID controller is essential for stable flight and hardware longevity. An improperly tuned controller induces high-frequency oscillations, forcing motors to work inefficiently and overheat. We observed this firsthand when motors became hot enough to damage their windings during a simple hover. Proper tuning allows even smaller motors to perform optimally, preventing thermal damage and maximizing efficiency without unnecessary weight increases.
 
 ### 2. Significant Amperage Headroom Requirement
@@ -64,6 +66,11 @@ While the drone cruises efficiently at 10-20A, its peak current demand can brief
 In practice, a battery's peak rating can be a limiting factor for performance. To use a battery with a lower discharge rate, the maximum motor power can be software-limited, trading off top-end agility for compatibility and potentially longer battery life.
 
 ### 3. The Battery Trilemma: Capacity vs. Discharge vs. Longevity
+    The C-Rating defines a battery's maximum safe continuous discharge current. 
+    It is a multiplier of the battery's capacity. For instance:
+        A 3C 5000mAh battery can supply 15A
+        A 20C 5000mAh battery can supply 100A
+  
 Our research into Li-ion cells revealed a critical trade-off:
 -   **High Discharge Rate (C-Rating):** Cells rated for 10-20C typically offer only 200-300 cycles before degrading to 60-80% of original capacity.
 -   **Low Discharge Rate:** Cells rated for 2-3C can achieve 500-800 cycles while retaining 80-90% capacity.
