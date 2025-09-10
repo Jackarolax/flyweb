@@ -43,8 +43,8 @@ and I also built a 21700 6s2p 8000mah 80A battery
 
 I wanted to see if Ican really push the drone to fly over a long distance, and what can I say, a 13km roundtrip with a lot of leeway in battery percentage, so it was a success indeed :).
 <p align="left">
-  <img src="./longrange tower dvr.png" alt="10 inch build" height="250"/>
-  <img src="./longrange landing dvr.png" alt="10 inch build" height="250"/>
+  <img src="./longrange tower dvr.png" alt="10 inch build" height="220"/>
+  <img src="./longrange landing dvr.png" alt="10 inch build" height="220"/>
 </p>
 
 <p align="left">
