@@ -1,90 +1,138 @@
-# FlyWeb
+# FlyWeb: Autonomous Drone Delivery Prototype
 
-FlyWeb is a startup focused on revolutionizing last-mile delivery through autonomous drone technology. I are currently in the early prototype development phase.
+This project documents the ongoing development of FlyWeb, a startup aimed at revolutionizing last-mile delivery through autonomous drone technology. The current focus is on iterating a robust, long-range drone platform capable of carrying a meaningful payload.
 
 ## Project Progress
 
-The foundation of a reliable delivery network is a robust drone capable of carrying a meaningful payload. My first major milestone was the design and construction of a large-scale, custom quadcopter (X-class UAV) with a 10-inch propeller diameter to explore the capabilities and challenges of this platform.
+The foundation of a reliable delivery network is a robust drone. The first major milestone was the design and construction of a large-scale, custom quadcopter to explore the capabilities and challenges of an X-class (10 inch) UAV platform.
 
-**First 10-inch Quadcopter Prototype:**
+The project has since evolved into a hexacopter frame for increased lift capacity and redundancy, maintaining a 10-inch propeller diameter to carry a payload.
+
+### First Hexacopter Prototype & Initial Tests
+
+The initial build served as a practical testbed, deliberately using very cost-effective motors to evaluate their suitability for this application.
+
+**First 10-inch Hexacopter Prototype:**
 <p align="left">
-  <img src="./images/10 inch build.jpg" width="500"/>
+  <img src="./media/progress_october_2025/10 inch hex old motors.jpg" width="500"/>
 </p>
 
-**Initial Flight Tests:**
+The first test was done with the previously built 6s2p 21700 8Ah 80A pack achieving ~20min of flight time with a range of 13.3km.
+
+**Initial Flight Test:**
 <p align="left">
-  <img src="./images/10 inch air.jpg" alt="Drone in flight" width="200"/>
-  <img src="./images/10 inch building.jpg" alt="Drone flying near a building" width="200"/>
-  <img src="./images/10 inch landing.jpg" alt="Drone landing" width="200"/>
+  <img src="./media/progress_october_2025/10 inch hex old motors flying.jpg" alt="Hex Drone in flight" height="400"/>
+  <img src="./media/progress_october_2025/10_inch_hex_old_motors_flying.gif" height="400"/>
 </p>
-
-### Custom High-Capacity Battery Development
-
-To maximize flight time and range, I moved beyond standard LiPo batteries and engineered custom high-energy-density Li-ion packs.
-
-**18650 6S2P Pack (5000mAh, 40A Continuous Discharge):**
-<p align="left">
-  <img src="./images/18650 raw no plug.jpg" alt="Raw 18650 cell assembly" height="200"/>
-  <img src="./images/18650 kapton taped.jpg" alt="Taped cell assembly" height="200"/>
-  <img src="./images/18650 weight.jpg" alt="Final pack weight" height="200"/>
-  <img src="./images/10 inch with 18650 6s2p.jpg" alt="Drone with 18650 pack" height="200"/>
-</p>
-
-**21700 6S2P Pack (8000mAh, 80A Continuous Discharge):**
-<p align="left">
-  <img src="./images/21700 raw no jst.jpg" alt="Raw 21700 cell assembly" height="200"/>
-  <img src="./images/21700 ready.jpg" alt="Finished 21700 pack" height="200"/>
-  <img src="./images/21700 weight.jpg" alt="21700 pack weight" height="200"/>
-  <img src="./images/10 inch with unfinished 21700 6s2p.jpg" alt="Drone with 21700 pack" height="200"/>
-</p>
-
-## Long-Range Endurance Test
-
-I successfully validated the platform's range and efficiency with a **13km round-trip flight**. The mission was completed with a significant margin of remaining battery capacity, confirming the viability of that design for delivery routes.
 
 **First-Person View (FPV) from the flight:**
 <p align="left">
-  <img src="./images/longrange tower dvr.png" alt="FPV view during flight" height="220"/>
-  <img src="./images/longrange landing dvr.png" alt="FPV view on landing approach" height="220"/>
+  <img src="./media/progress_october_2025/hex fpv feed old motors end.jpg" height="350"/>
 </p>
 
-**Flight Path:**
+> **Note on Data:** The current meter was not fully calibrated, so the amp reading is inaccurate. However, the distance was measured via GPS and is considered accurate.
+
+### Custom High-Capacity Battery Development
+
+With the added motors a higher capacity Li-ion battery is better suited.
+
+**18650 6S4P Pack (12000mAh, 120A Continuous Discharge):**
 <p align="left">
-  <img src="./images/map.jpg" alt="GPS map of the 13km flight" height="600"/>
+  <img src="./media/progress_october_2025/6s4p backside.jpg" height="300"/>
+  <img src="./media/progress_october_2025/6s4p frontside.jpg" height="300"/>
+  <img src="./media/progress_october_2025/6s4p finished.jpg" height="300"/>
 </p>
+
+### Custom-Manufactured Tilt Gimbal
+
+For a better view during package delivery approaches, a tilt gimbal for the FPV camera was built and integrated. The design is based on an open-source concept from [Medlin Drone](https://medlindrone.com/2022/12/22/whoop-fpv-gimbal/).
+
+<p align="left">
+  <img src="./media/progress_october_2025/gimbal facing up.jpg" height="200"/>
+  <img src="./media/progress_october_2025/gimbal facing down.jpg" height="200"/>
+</p>
+
+### Motor Upgrade
+
+The original 2212 (930kv) motors were swapped for higher-quality 2812 (900kv) motors, which feature significantly lower phase wire resistance.
+
+<p align="left">
+  <img src="./media/progress_october_2025/10 inch hex new motors.jpg" width="500"/>
+</p>
+
+## Long-Range Payload Carrying Test
+
+<p align="left">
+  <img src="./media/progress_october_2025/10 inch hex new motors with payload.jpg" height="300"/>
+</p>
+
+The upgraded platform successfully validated its payload capacity by carrying **435g** on a flight covering **16.8 km**, completely draining the custom 12Ah battery.
+
+
+**First-Person View (FPV) from the flight:**
+<p align="left">
+  <img src="./media/progress_october_2025/hex fpv feed end.png" height="350"/>
+</p>
+
+> **Note on Data:** The current meter was not fully calibrated, so the amp reading is inaccurate. However, the distance was measured via GPS and is considered accurate.
+
+**Conclusion**
+
+While this range is promising, using 100% of the battery charge limits the practical delivery radius to ~8km with no safety margin. Nevertheless, this flight is a strong proof-of-concept for the platform's capabilities.
+
 
 ## Key Learnings
 
-### 1. Critical Importance of PID Tuning
-    A PID controller is a feedback loop algorithm that automatically corrects the drone's movement to keep it stable.
+### 1. Proper Understanding of Tuning
 
-A well-tuned PID controller is not only essential for stable flight, but also for hardware longevity. An improperly tuned controller induces high-frequency oscillations, forcing motors to work inefficiently and overheat. I observed this firsthand when the motors became hot enough to damage their windings during a simple hover. Proper tuning allows even smaller motors to perform optimally, preventing thermal damage and maximizing efficiency without unnecessary weight increases.
+While PID controller theory is straightforward, practical tuning using blackbox logs is a complex, hands-on process. After significant analysis and iteration, I successfully eliminated dangerous oscillations that cause motor overheating and flyaways.
 
-### 2. Significant Amperage Headroom Requirement
-While the drone cruises efficiently at 10-20A, its peak current demand can briefly exceed 100A during full-throttle maneuvers. This non-linear power requirement means a battery must be rated for these high bursts, not just for cruise performance plus some headroom. Our initial 40A-rated battery could not supply these bursts, causing severe voltage sag. This power instability directly disrupted the PID controller's operation, inducing dangerous oscillations that led to motor overheating and damage.
+A useful analogy is to think of a drone frame like a metal fence. As a child, you might have wiggled a fence until it swung easily. On a drone, these structural oscillations confuse the PID controller (especially the D-term), causing motors to rapidly change speed and overheat.
 
-To avoid that problem, the maximum motor power can be software-limited, trading off top-end agility for compatibility.
-(although I haven't rigorously tested this makeshift solution yet)
+*   **First, Target the Frame:** The ideal solution is always to increase frame rigidity, eliminating the source of the wobble entirely.
+*   **Then, Apply Surgical Filtering:** Since my current frame's structure is a fixed variable, I moved to the software. This involved deploying a combination of **notch, low-pass, and D-term filters** to act like a shock absorber, surgically canceling out the specific, low-frequency oscillations inherent to a large drone with slow-spinning propellers.
+*   **Finally, Tune the PID Controller:** Only with a clean signal from the filters could the PID controller be tuned effectively. The significant mass of this platform required a substantial increase in P and D gains to achieve the authoritative control needed for stable flight.
 
-### 3. The Battery Trilemma: Capacity vs. Discharge vs. Longevity
-    The C-Rating defines a battery's maximum safe continuous discharge current.
-    It is a multiplier of the battery's capacity. For instance:
-        A 3C 5000mAh battery can supply 15A
-        A 20C 5000mAh battery can supply 100A
 
-My research into Li-ion cells revealed a critical trade-off:
--   **High Discharge Rate (C-Rating):** Cells rated for 10-20C typically offer only 200-300 cycles before degrading to 60-80% of original capacity.
--   **Low Discharge Rate:** Cells rated for 2-3C can achieve 500-800 cycles while retaining 80-90% capacity.
+Here is the tune I used. the filtering and PIDs are more on the conservative side
+<p align="left">
+  <img src="./media/progress_october_2025/pid tab.png" height="250"/>
+  <img src="./media/progress_october_2025/filter tab.png" height="250"/>
+</p>
 
-This creates a key design challenge: optimizing for sufficient peak amperage (see Learning #2) while prioritizing long-term battery cycle life for economic viability.
+> **Note:** I am no expert yet, so the tune is far from optimized.
 
-**TL;DR: Key Learnings:**
-Proper PID tuning can outperform hardware upgrades, using batteries with an inadequate discharge-rating risks motor damage, and higher-performance cells significantly sacrifice long-term lifespan.
+### 2. Does motor price matter?
+
+This build deliberately compared very inexpensive motors (€3 each) against better, cost-effective ones (€8 each). The results were illuminating.
+
+While the more expensive motors were generally more efficient, motor efficiency is highly dependent on throttle position. The efficiency curve resembles a reverse "Nike Swoosh," with a "sweet spot" at 20-30% throttle. While a drone with cheaper motors could theoretically outperform better motors at its sweet spot, adding a payload forces the motors to operate at a higher, less efficient throttle position. In practice, this makes the better motors a necessity for payload-carrying applications.
+<p align="left">
+  <img src="./media/progress_october_2025/Motor efficiency graph.jpg" height="250"/>
+</p>
+Furthermore, the cheaper motors introduced a major practical issue: poor manufacturing consistency led to poorly centered rotors, which caused significant vibrations. These vibrations added noise to the system affecting the overall tune.
+
+### 3. Major improvements through decreasing top performance
+
+Motors are highly inefficient at high throttle. By software-limiting the maximum throttle output to 70-80%, the drone draws less than half of its peak power while retaining most of its lift capability. This strategy has major cascading benefits:
+
+*   **Increased Flight Efficiency:** The system operates in a more efficient part of the throttle curve.
+*   **Cost & Weight Reduction:** It allows the use of lower-rated, cheaper ESCs (30A instead of 60A+).
+*   **Simplified Power Delivery:** The peak current demand is drastically reduced from a potential 360A, making the electrical system more manageable.
+
+However, one key constraint remains: even with this throttle limit, the sustained current draw still requires the use of high-C rated Li-ion cells. The trade-off for this high discharge rate is a lower overall cycle life compared to standard cells as stated in the key learnings from September.
+
+### TL;DR: Key Learnings
+
+*   **Tuning:** Larger drones need lower-frequency filtering and higher P/D gains for stability.
+*   **Motors:** Price doesn't scale linearly with performance, but better motors offer crucial real-world efficiency and reliability.
+*   **Performance cap:** Limiting top power creates cascading benefits for cost, weight, and overall system feasibility.
 
 ## Next Steps
 
-My next goal is to build upon these learnings by developing a **hexacopter frame** for the 10-inch drone class. This design will introduce motor redundancy and it will be using more cost effective motors. the frame also allows for more options to mount payload to for my first proof-of-concept delivery tests.
-
+My next step is to transition the flight controller firmware from Betaflight to iNav. This upgrade unlocks critical autonomous flight modes—such as position hold, altitude hold, and mission planning—which are fundamental for developing a true delivery platform.
 <p align="left">
-  <img src="./images/10 inch hex.jpg" alt="10-inch hexacopter frame design" height="500"/>
+  <img src="./media/progress_october_2025/inav logo.png" width="300"/>
 </p>
+
+
