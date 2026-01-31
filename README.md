@@ -116,11 +116,11 @@ Furthermore, the manufacturer's thrust stand data suggested significantly better
 
 ### TL;DR: Key Learnings
 
-* 1.  Increasing the motor arm tube’s diameter is a simpler and more effective way to add stiffness than adding supportive braces.
+* 1. Increasing the motor arm tube’s diameter is a simpler and more effective way to add stiffness than adding supportive braces.
 
-* 2.  A larger propeller doesn’t guarantee better flight efficiency if the motor lacks the torque to spin it properly.
+* 2. A larger propeller doesn’t guarantee better flight efficiency if the motor lacks the torque to spin it properly.
 
-* 3.  Motor specifications and static test data can be misleading, as real-world characteristics and manufacturing variances greatly impact actual performance.
+* 3. Motor specifications and static test data can be misleading, as real-world characteristics and manufacturing variances greatly impact actual performance.
 
 ## Next Steps
 
